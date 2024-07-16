@@ -11,6 +11,7 @@ $pgPwd = "root"
 [Environment]::SetEnvironmentVariable("PGUSER", $pgUser, "Machine")
 [Environment]::SetEnvironmentVariable("PGPASSWORD", $pgPwd, "Machine")
 
+# Update to support newer postgres version
 $toolsetVersion = (Get-ToolsetContent).postgresql.version
 if ($null -ne ($toolsetVersion | Select-String -Pattern '\d+\.\d+\.\d+')) {
     $majorVersion = ([version]$toolsetVersion).Major
